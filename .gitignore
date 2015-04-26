@@ -9,5 +9,4 @@ config.mk
 cflie.*
 version.c
 
-*.filters
 *.sdf

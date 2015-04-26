@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22609.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crazyflie-firmware", "crazyflie-firmware.vcxproj", "{CAD4A21F-D80C-4FDB-BC2D-29A7D72DEB25}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crazyflie-firmware", "crazyflie-firmware.vcxproj", "{5ADEF49A-4133-4ABB-AD0D-E9FBB4723AAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,8 @@ Global
 		Release|ARM = Release|ARM
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CAD4A21F-D80C-4FDB-BC2D-29A7D72DEB25}.Debug|ARM.ActiveCfg = Debug|ARM
-		{CAD4A21F-D80C-4FDB-BC2D-29A7D72DEB25}.Debug|ARM.Build.0 = Debug|ARM
-		{CAD4A21F-D80C-4FDB-BC2D-29A7D72DEB25}.Release|ARM.ActiveCfg = Release|ARM
-		{CAD4A21F-D80C-4FDB-BC2D-29A7D72DEB25}.Release|ARM.Build.0 = Release|ARM
+		{5ADEF49A-4133-4ABB-AD0D-E9FBB4723AAF}.Debug|ARM.ActiveCfg = Debug|ARM
+		{5ADEF49A-4133-4ABB-AD0D-E9FBB4723AAF}.Release|ARM.ActiveCfg = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

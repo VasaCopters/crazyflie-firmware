@@ -1,0 +1,1020 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\bitcrazy">
+      <UniqueIdentifier>{98eb60c5-32e5-4dfd-8130-30404a167a35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\bitcrazy">
+      <UniqueIdentifier>{3c8334fa-4852-457f-9b5d-0cadeb9bcb74}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="drivers\interface\adc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\ak8963.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\arm_common_tables.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\arm_math.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\cfassert.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\comm.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\commander.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="config\config.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\configblock.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\console.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\controller.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_cm0.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_cm3.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Core\CM3\core_cm3.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_cm4.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_cm4_simd.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_cmFunc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_cmInstr.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_sc000.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Include\core_sc300.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_CPAL_Driver\inc\cpal.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_CPAL_Driver\inc\cpal_i2c.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_CPAL_Driver\devices\stm32f2xx\cpal_i2c_hal_stm32f2xx.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_CPAL_Driver\devices\stm32f4xx\cpal_i2c_hal_stm32f4xx.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_CPAL_Driver\devices\stm32f10x\cpal_i2c_hal_stm32f10x.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_CPAL_Driver\devices\stm32l1xx\cpal_i2c_hal_stm32l1xx.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\cpuid.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\crc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\croutine.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\crtp.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\crtpservice.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\debug.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\eeprom.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\eprintf.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\eskylink.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\expbrd.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\exptest.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\exti.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\filter.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\fp16.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\FreeRTOS.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="config\FreeRTOSConfig.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\freeRTOSdebug.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\hmc5883l.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\i2cdev.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\i2croutines.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\imu.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\imu_types.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\info.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\led.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\ledseq.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\list.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\log.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\lps25h.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\mem.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\misc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\motors.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\mpu_wrappers.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\mpu6050.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\mpu6500.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\ms5611.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\neopixelring.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\nrf24l01.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\nRF24L01reg.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\nrf24link.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\nvic.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="config\nvicconf.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\ow.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\param.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\pid.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\pidctrl.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\platform.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\platformservice.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\pm.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\portable.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\portable\GCC\ARM_CM4F\portmacro.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\portable\GCC\ARM_CM3\portmacro.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\projdefs.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\queue.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\radiolink.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\semphr.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\sensfusion6.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\stabilizer.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\StackMacros.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\STM32F4xx\Include\stm32f4xx.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="config\stm32f4xx_conf.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cryp.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dac.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma2d.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_hash.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_i2c.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_iwdg.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_misc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_pwr.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rcc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rng.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rtc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sdio.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spi.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_syscfg.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Core\CM3\stm32f10x.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="config\stm32f10x_conf.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="config\stm32f40x_i2c_cpal_conf.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="config\stm32fxxx.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\swd.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\syslink.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\system.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\STM32F4xx\Include\system_stm32f4xx.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\CMSIS\Core\CM3\system_stm32f10x.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\task.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\FreeRTOS\include\timers.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\uart_syslink.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\usb.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_bsp.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\usb_conf.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_conf_template.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_core.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_dcd.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_dcd_int.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_defines.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_hcd.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_hcd_int.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_otg.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_OTG_Driver\inc\usb_regs.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\usbd_conf.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_Device_Library\Core\inc\usbd_conf_template.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_Device_Library\Core\inc\usbd_core.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_Device_Library\Core\inc\usbd_def.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\usbd_desc.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_Device_Library\Core\inc\usbd_ioreq.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_Device_Library\Core\inc\usbd_req.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\STM32_USB_Device_Library\Core\inc\usbd_usr.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\usblink.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="hal\interface\usec_time.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\interface\version.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\interface\worker.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\interface\ws2812.h">
+      <Filter>Header Files\bitcrazy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="utils\src\abort.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\adc_f103.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\ak8963.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\cfassert.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\comm.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\commander.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\configblockeeprom.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\configblockflash.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\console.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\controller.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\CMSIS\Core\CM3\core_cm3.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_CPAL_Driver\src\cpal_hal.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_CPAL_Driver\src\cpal_i2c.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_CPAL_Driver\devices\stm32f2xx\cpal_i2c_hal_stm32f2xx.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_CPAL_Driver\devices\stm32f4xx\cpal_i2c_hal_stm32f4xx.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_CPAL_Driver\devices\stm32f10x\cpal_i2c_hal_stm32f10x.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_CPAL_Driver\devices\stm32l1xx\cpal_i2c_hal_stm32l1xx.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_CPAL_Driver\src\cpal_usercallback_template.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\cpuid.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\crc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\croutine.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\crtp.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\crtpservice.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\debug.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\eeprom.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\eprintf.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\eskylink.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\expbrd.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\exptest.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\exti.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\filter.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\src\fp16.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\freeRTOSdebug.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\portable\MemMang\heap_1.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\portable\MemMang\heap_2.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\portable\MemMang\heap_3.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\portable\MemMang\heap_4.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\hmc5883l.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\i2cdev_f103.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\i2cdev_f405.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\i2croutines.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\imu_cf1.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\imu_cf2.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\info.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\led.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\ledseq.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\list.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\log.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\lps25h.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="init\main.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\mem.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\misc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\motors_f103.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\motors_f405.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\mpu6050.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\mpu6500.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\ms5611.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\neopixelring.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\nrf24l01.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\nrf24link.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\nvic.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\ow.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\param.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\pid.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\pidctrl.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="platform\cf2\platform_cf2.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\platformservice.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\pm_f103.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\pm_f405.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\portable\GCC\ARM_CM3\port.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\portable\GCC\ARM_CM4F\port.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\queue.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\radiolink.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\sensfusion6.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\stabilizer.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_misc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_bkp.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_can.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_crc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dac.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dma.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_fsmc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_i2c.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_iwdg.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_pwr.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_rtc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_sdio.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32F10x_StdPeriph_Driver\src\stm32f10x_wwdg.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\swd.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\syslink.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\system.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\CMSIS\STM32F4xx\Source\system_stm32f4xx.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\CMSIS\Core\CM3\system_stm32f10x.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\tasks.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\FreeRTOS\timers.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\uart_syslink.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\usb.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\usb_bsp.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_OTG_Driver\src\usb_bsp_template.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_OTG_Driver\src\usb_core.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_OTG_Driver\src\usb_dcd.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_OTG_Driver\src\usb_dcd_int.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_OTG_Driver\src\usb_hcd.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_OTG_Driver\src\usb_hcd_int.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_OTG_Driver\src\usb_otg.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_Device_Library\Core\src\usbd_core.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\usbd_desc.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_Device_Library\Core\src\usbd_ioreq.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\STM32_USB_Device_Library\Core\src\usbd_req.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\usbd_usr.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\usblink.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="hal\src\usec_time.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\src\worker.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\src\ws2812.c">
+      <Filter>Source Files\bitcrazy</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
