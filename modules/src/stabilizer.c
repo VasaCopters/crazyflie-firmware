@@ -118,6 +118,15 @@ static uint16_t altHoldBaseThrust   = 43000; // approximate throttle needed when
 static uint16_t altHoldMaxThrust    = 60000; // max altitude hold thrust
 
 
+
+static float klqr[4][12] = {{ 0.0068, -0.0068, -0.0000,  0.0006, -0.0006, -0.0000, -0.6052, -0.6052,  0.6891, -0.2059, -0.2059,  0.2725},
+							{-0.0068, -0.0068,  0.0000, -0.0006, -0.0006,  0.0000,  0.6052, -0.6052,  0.6891,  0.2059, -0.2059,  0.2725},
+							{-0.0068,  0.0068, -0.0000, -0.0006,  0.0006, -0.0000,  0.6052,  0.6052,  0.6891,  0.2059,  0.2059,  0.2725},
+							{0.0068,  0.0068,  0.0000,  0.0006,  0.0006,  0.0000, -0.6052,  0.6052,  0.6891, -0.2059,  0.2059,  0.2725}};
+
+
+
+
 RPYType rollType;
 RPYType pitchType;
 RPYType yawType;
@@ -135,12 +144,40 @@ uint32_t motorPowerM3;
 static bool isInit;
 
 static void stabilizerAltHoldUpdate(void);
+static void setThrust(const uint16_t thrust1, const uint16_t thrust2, const uint16_t thrust3, const uint16_t thrust4);
 static void distributePower(const uint16_t thrust, const int16_t roll,
                             const int16_t pitch, const int16_t yaw);
 static uint16_t limitThrust(int32_t value);
 static void stabilizerTask(void* param);
 static float constrain(float value, const float minVal, const float maxVal);
 static float deadband(float value, const float threshold);
+static void mxv(float u[4], float m[4][12], float v[12]);
+
+static uint8_t i = 0;
+static uint8_t j = 0;
+static float x[12];
+static float r[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0.25, 0, 0, 0 };
+static float u[4];
+static float xtrim[12] = {0, 0, 0, 0, 0, 0, 0, 0, -1.6, 0, 0, 0};
+
+static void mxv(float u[4], float m[4][12], float v[12]) {
+	for (i = 0; i < 4; ++i) {
+		u[i] = 0;
+		for (j = 0; j < 12; ++j)
+			u[i] += m[i][j] * v[j];
+	}
+}
+
+static void sub(float out[12], float v1[12], float v2[12]) {
+	for (i = 0; i < 12; ++i)
+		out[i] = v1[i] - v2[i];
+}
+
+static void add(float out[12], float v1[12], float v2[12]) {
+	for (i = 0; i < 12; ++i)
+		out[i] = v1[i] + v2[i];
+}
+
 
 void stabilizerInit(void)
 {
@@ -262,7 +299,43 @@ static void stabilizerTask(void* param)
 #elif defined(TUNE_YAW)
         distributePower(actuatorThrust, 0, 0, -actuatorYaw);
 #else
-        distributePower(actuatorThrust, actuatorRoll, actuatorPitch, -actuatorYaw);
+        //distributePower(actuatorThrust, actuatorRoll, actuatorPitch, -actuatorYaw);
+		  x[0] = eulerPitchActual;
+		  x[1] = eulerRollActual;
+		  x[2] = eulerYawActual;
+		  x[3] = gyro.y;
+		  x[4] = gyro.x;
+		  x[5] = gyro.z;
+		  x[6] = eulerRollDesired / 1000.f;
+		  x[7] = eulerPitchDesired / 1000.f;
+		  x[8] = eulerYawDesired / 1000.f;
+		  x[9] = 0;
+		  x[10] = 0;
+		  x[11] = vSpeed;
+
+		  add(x, x, xtrim);
+		  sub(r, r, x);
+		 // x[0] = 0;
+		 // x[1] = 0;
+		  x[2] = 0;
+		  x[3] = 0;
+		  x[4] = 0;
+		  x[5] = 0;
+		  x[6] = 0;
+		  x[7] = 0;
+		  x[8] = 0;
+
+		  mxv(u, klqr, r);
+		  
+		  static int vbatid;
+		  float vbat;
+
+		  vbatid = logGetVarId("pm", "vbat");
+		  vbat = logGetFloat(vbatid);
+		  float pwm_per_volt = 65535.f / vbat;
+
+		  setThrust(u[0] * pwm_per_volt, u[1] * pwm_per_volt, u[2] * pwm_per_volt, u[3] * pwm_per_volt);
+
 #endif
       }
       else
@@ -354,6 +427,19 @@ static void stabilizerAltHoldUpdate(void)
     altHoldErr = 0.0;
     altHoldPIDVal = 0.0;
   }
+}
+
+static void setThrust(const uint16_t thrust1, const uint16_t thrust2, const uint16_t thrust3, const uint16_t thrust4)
+{
+	motorPowerM1 = limitThrust(thrust1);
+	motorPowerM2 = limitThrust(thrust2);
+	motorPowerM3 = limitThrust(thrust3);
+	motorPowerM4 = limitThrust(thrust4);
+
+	motorsSetRatio(MOTOR_M1, motorPowerM1);
+	motorsSetRatio(MOTOR_M2, motorPowerM2);
+	motorsSetRatio(MOTOR_M3, motorPowerM3);
+	motorsSetRatio(MOTOR_M4, motorPowerM4);
 }
 
 static void distributePower(const uint16_t thrust, const int16_t roll,
