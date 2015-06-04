@@ -61,6 +61,18 @@
 #define ALTHOLD_UPDATE_RATE_DIVIDER  5 // 500hz/5 = 100hz for barometer measurements
 #define ALTHOLD_UPDATE_DT  (float)(1.0 / (IMU_UPDATE_FREQ / ALTHOLD_UPDATE_RATE_DIVIDER))   // 500hz
 
+#define ON_FLAG			0x1
+#define START_FLAG		0x02
+#define LAND_FLAG		0x04
+#define CANCEL_FLAG		0x08
+#define COMMAND_FLAG	0x10
+#define PARAM_FLAG		0xFF00
+
+typedef enum { MODE_OFF, MODE_START, MODE_LAND, MODE_HOVER, MODE_COMMAND, MODE_CANCEL } MODES;
+
+static MODES currentMode = MODE_OFF;
+static uint16_t cmdParam = 0;
+
 static Axis3f gyro; // Gyro axis data in deg/s
 static Axis3f acc;  // Accelerometer axis data in mG
 static Axis3f mag;  // Magnetometer axis data in testla
@@ -119,25 +131,24 @@ static uint16_t altHoldMaxThrust    = 60000; // max altitude hold thrust
 
 
 
-static float klqr[4][12] = {
-{ 0.013219506, -0.013219506, -0.01539505,  0.001147392, -0.001147392, -0.0003576, -0.475786019, -0.475786019,  0.497825910, -0.279414560, -0.279414560,  0.248906127},
-{-0.013219506, -0.013219506,  0.01539505, -0.001147392, -0.001147392,  0.0003576,  0.475786016, -0.475786015,  0.497825911,  0.279414558, -0.279414558,  0.248906127},
-{-0.013219506,  0.013219506, -0.01539505, -0.001147392,  0.001147392, -0.0003576,  0.475786019,  0.475786022,  0.497825913,  0.279414560,  0.279414562,  0.248906128},
-{ 0.013219506,  0.013219506,  0.01539505,  0.001147392,  0.001147392,  0.0003576, -0.475786015,  0.475786017,  0.497825912, -0.279414558,  0.279414559,  0.248906128}};
 
+static float klqr[4][12] = {
+	{ 0.013219506, -0.013219506, -0.01539505,  0.001147392, -0.001147392, -0.0003576, -0.475786019, -0.475786019,  0.497825910, -0.279414560, -0.279414560,  0.248906127 },
+	{ -0.013219506, -0.013219506,  0.01539505, -0.001147392, -0.001147392,  0.0003576,  0.475786016, -0.475786015,  0.497825911,  0.279414558, -0.279414558,  0.248906127 },
+	{ -0.013219506,  0.013219506, -0.01539505, -0.001147392,  0.001147392, -0.0003576,  0.475786019,  0.475786022,  0.497825913,  0.279414560,  0.279414562,  0.248906128 },
+	{ 0.013219506,  0.013219506,  0.01539505,  0.001147392,  0.001147392,  0.0003576, -0.475786015,  0.475786017,  0.497825912, -0.279414558,  0.279414559,  0.248906128 } };
 
 static float kr[4][12] = {
-{ 0.0006806, -0.0006806, -0.0, -0.6806,  0.6806,  0.00011612, -0.0, -0.0,  0.028375,  0.0,  0.0, -28.375},
-{-0.0006806, -0.0006806,  0.0,  0.6806,  0.6806, -0.00011612,  0.0, -0.0,  0.028375, -0.0,  0.0, -28.375},
-{-0.0006806,  0.0006806, -0.0,  0.6806, -0.6806,  0.00011612,  0.0,  0.0,  0.028375, -0.0, -0.0, -28.375},
-{ 0.0006806,  0.0006806,  0.0, -0.6806, -0.6806, -0.00011612, -0.0,  0.0,  0.028375,  0.0, -0.0, -28.375}};
-    
+	{ 0.0006806, -0.0006806, -0.0, -0.6806,  0.6806,  0.00011612, -0.0, -0.0,  0.028375,  0.0,  0.0, -28.375 },
+	{ -0.0006806, -0.0006806,  0.0,  0.6806,  0.6806, -0.00011612,  0.0, -0.0,  0.028375, -0.0,  0.0, -28.375 },
+	{ -0.0006806,  0.0006806, -0.0,  0.6806, -0.6806,  0.00011612,  0.0,  0.0,  0.028375, -0.0, -0.0, -28.375 },
+	{ 0.0006806,  0.0006806,  0.0, -0.6806, -0.6806, -0.00011612, -0.0,  0.0,  0.028375,  0.0, -0.0, -28.375 } };
 
 RPYType rollType;
 RPYType pitchType;
 RPYType yawType;
 
-uint16_t actuatorThrust;
+uint16_t modeFlags;
 int16_t  actuatorRoll;
 int16_t  actuatorPitch;
 int16_t  actuatorYaw;
@@ -158,6 +169,10 @@ static void stabilizerTask(void* param);
 static float constrain(float value, const float minVal, const float maxVal);
 static float deadband(float value, const float threshold);
 static void mxv(float u[4], float m[4][12], float v[12]);
+static void runController();
+
+static int vbatid;
+static float vbat;
 
 static uint8_t i = 0;
 static uint8_t j = 0;
@@ -168,11 +183,14 @@ static float kdx[4] = { 0, 0, 0, 0};
 static float r[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 static float dr[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 static float r_op[4] = { 0, 0, 0, 0};
-static float u_op[4] = { 2.275, 2.275, 2.275, 2.275};								
-// static float u_op[4] = { 0.0, 0.0, 0.0, 0.0};								
+//static float u_op[4] = { 2.275, 2.275, 2.275, 2.275 };
+static float u_op[4] = { 2.15f, 2.15f, 2.15f, 2.15f};
+//static float u_op[4] = { 0.0, 0.0, 0.0, 0.0};
+
 static float u[4] = { 0.0, 0.0, 0.0, 0.0};
 static float du[4] = { 0, 0, 0, 0};
-// static float xtrim[12] = {0, 0, 0, 0, 0, 0, 0, 0, -1.6, 0, 0, 0};
+
+static float pwmPerVolt;
 
 static void mxv(float u[4], float m[4][12], float v[12]) {
 	for (i = 0; i < 4; ++i) {
@@ -209,6 +227,8 @@ void stabilizerInit(void)
 
   xTaskCreate(stabilizerTask, (const signed char * const)STABILIZER_TASK_NAME,
               STABILIZER_TASK_STACKSIZE, NULL, STABILIZER_TASK_PRI, NULL);
+
+  vbatid = logGetVarId("pm", "vbat");
 
   isInit = true;
 }
@@ -296,7 +316,7 @@ static void stabilizerTask(void* param)
       if (!altHold || !imuHasBarometer())
       {
         // Use thrust from controller if not in altitude hold mode
-        commanderGetThrust(&actuatorThrust);
+        commanderGetThrust(&modeFlags);
       }
       else
       {
@@ -304,75 +324,116 @@ static void stabilizerTask(void* param)
         commanderWatchdog();
       }
 
-      if (actuatorThrust > 0)
+      if (modeFlags & ON_FLAG)
       {
-#if defined(TUNE_ROLL)
-        distributePower(actuatorThrust, actuatorRoll, 0, 0);
-#elif defined(TUNE_PITCH)
-        distributePower(actuatorThrust, 0, actuatorPitch, 0);
-#elif defined(TUNE_YAW)
-        distributePower(actuatorThrust, 0, 0, -actuatorYaw);
-#else
-        //distributePower(actuatorThrust, actuatorRoll, actuatorPitch, -actuatorYaw);
-		  x[0] = eulerPitchActual;
-		  x[1] = eulerRollActual;
-		  x[2] = eulerYawActual;
-		  x[3] = -gyro.y;
-		  x[4] = gyro.x;
-		  x[5] = gyro.z;
-		  x[6] = eulerRollDesired / 1000.f;
-		  x[7] = eulerPitchDesired / 1000.f;
-		  x[8] = eulerYawDesired / 1000.f;
-		  x[9] = 0; 										// cutting x_dot, y_dot
-		  x[10] = 0;
-		  x[11] = vSpeed;
+		  switch (currentMode)
+		  {
+		  case MODE_OFF:
+			  setThrust(0, 0, 0, 0);
+			  if (modeFlags & START_FLAG) {
+				  currentMode = MODE_START;
+			  }
+			  break;
 
-		  // x[0] = 0;
-		  // x[1] = 0;
-		  // x[2] = 0;
-		  // x[3] = 0;
-		  // x[4] = 0;
-		  // x[5] = 0;
-		  x[6] = 0;											// cutting x y z and z_dot
-		  x[7] = 0;
-		  x[8] = 0;
-		  x[9] = 0;
-		  x[10] = 0;
-		  x[11] = 0;
-		  
+		  case MODE_HOVER:
+			  if (modeFlags & LAND_FLAG)
+				  currentMode = MODE_LAND;
+			  else
+				  runController();
+			  break;
 
-		  sub(dx, x, x_op);
-		  sub(dr, r, x_op);
+		  case MODE_LAND:
+			  //TODO: Set a lower thrust liek 2000 and a delay isntead
+			  setThrust(0, 0, 0, 0);
+			  currentMode = MODE_OFF;
+			  break;
 
-		  mxv(r_op, kr, dr);
-		  mxv(kdx, klqr, dx);
+		  case MODE_START:
+			  currentMode = MODE_HOVER;
+			  break;
 
-		  sub(du, r_op, kdx);
+		  case MODE_COMMAND:
+			  //Not in use since not all states are stable yet
+			  cmdParam = modeFlags & PARAM_FLAG;
+			  cmdParam >>= 8;
+			  break;
 
-		  add(u, du, u_op);
-		  //u[0] = 2.5;
-		  //u[1] = 2.5;
-		  //u[2] = 2.5;
-		  //u[3] = 2.5;
-		  
-		  static int vbatid;
-		  float vbat;
+		  case MODE_CANCEL:
+			  r[0] = 0;
+			  r[1] = 0;
+			  r[2] = 0;
+			  r[3] = 0;
+			  r[4] = 0;
+			  r[5] = 0;
+			  r[6] = 0;
+			  r[7] = 0;
+			  r[8] = 0;
+			  r[9] = 0;
+			  r[10] = 0;
+			  r[11] = 0;
 
-		  vbatid = logGetVarId("pm", "vbat");
-		  vbat = logGetFloat(vbatid);
-		  float pwm_per_volt = 65535.f / vbat;
+			  //TODO: Wait for the states values before switching
+			  currentMode = MODE_HOVER;
+			  break;
 
-		  setThrust(u[0] * pwm_per_volt, u[1] * pwm_per_volt, u[2] * pwm_per_volt, u[3] * pwm_per_volt);
+		  default:
+			  break;
+		  }
 
-#endif
       }
       else
       {
         distributePower(0, 0, 0, 0);
-        controllerResetAllPID();
       }
     }
   }
+}
+
+static void runController() {
+	//distributePower(actuatorThrust, actuatorRoll, actuatorPitch, -actuatorYaw);
+	x[0] = eulerPitchActual;
+	x[1] = eulerRollActual;
+	x[2] = eulerYawActual;
+	x[3] = -gyro.y;
+	x[4] = gyro.x;
+	x[5] = gyro.z;
+	x[6] = eulerRollDesired / 1000.f;
+	x[7] = eulerPitchDesired / 1000.f;
+	x[8] = eulerYawDesired / 1000.f;
+	x[9] = 0;
+	x[10] = 0;
+	x[11] = vSpeed;
+
+	//Turn off states
+	x[6] = 0;
+	x[7] = 0;
+	x[8] = 0;
+	x[9] = 0;
+	x[10] = 0;
+	x[11] = 0;
+
+
+	//LQR
+	sub(dx, x, x_op);
+	sub(dr, r, x_op);
+
+	mxv(r_op, kr, dr);
+	mxv(kdx, klqr, dx);
+
+	sub(du, r_op, kdx);
+
+	add(u, du, u_op);
+
+
+	//Thrust
+	vbat = logGetFloat(vbatid);
+	pwmPerVolt = 65535.f / vbat;
+
+	setThrust(
+		u[0] * pwmPerVolt,
+		u[1] * pwmPerVolt,
+		u[2] * pwmPerVolt,
+		u[3] * pwmPerVolt);
 }
 
 static void stabilizerAltHoldUpdate(void)
@@ -443,7 +504,7 @@ static void stabilizerAltHoldUpdate(void)
                     (vSpeedASL * vSpeedASLFac) + pidUpdate(&altHoldPID, asl, false));
 
     // compute new thrust
-    actuatorThrust =  max(altHoldMinThrust, min(altHoldMaxThrust,
+    modeFlags =  max(altHoldMinThrust, min(altHoldMaxThrust,
                           limitThrust( altHoldBaseThrust + (int32_t)(altHoldPIDVal*pidAslFac))));
 
     // i part should compensate for voltage drop
@@ -535,7 +596,7 @@ LOG_GROUP_START(stabilizer)
 LOG_ADD(LOG_FLOAT, roll, &eulerRollActual)
 LOG_ADD(LOG_FLOAT, pitch, &eulerPitchActual)
 LOG_ADD(LOG_FLOAT, yaw, &eulerYawActual)
-LOG_ADD(LOG_UINT16, thrust, &actuatorThrust)
+LOG_ADD(LOG_UINT16, thrust, &modeFlags)
 LOG_GROUP_STOP(stabilizer)
 
 LOG_GROUP_START(acc)

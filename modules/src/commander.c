@@ -159,6 +159,8 @@ void commanderGetThrust(uint16_t* thrust)
   }
   else
   {
+	*thrust = rawThrust;
+	/*
     if (rawThrust > MIN_THRUST)
     {
       *thrust = rawThrust;
@@ -171,7 +173,7 @@ void commanderGetThrust(uint16_t* thrust)
     if (rawThrust > MAX_THRUST)
     {
       *thrust = MAX_THRUST;
-    }
+    }*/
   }
 
   commanderWatchdog();
